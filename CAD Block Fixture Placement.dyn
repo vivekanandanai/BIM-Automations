@@ -1,0 +1,563 @@
+{
+  "Uuid": "55cd355d-a4ac-4b63-b6db-2602fb942fe2",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CAD Block Fixture Placement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "c74d23c705bf41e3a4847f23c99387ad",
+      "Name": "Enyter your family type name",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "Pendent_Sprinkler",
+      "Description": "Creates a string",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "3dfa02125e4a4030bbd79439a87989e5",
+      "Name": "Select your required CAD Block Layout",
+      "Type": "selection",
+      "Type2": "hostSelection",
+      "Value": "",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [
+    {
+      "Id": "819d3b85aae74cd7a21fbb69dee57dde",
+      "Name": "FamilyInstance.ByPoint",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space\n\nFamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance"
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "6c644b81109644bf86c43cc0974f6250",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "a8047059909348beaf1baf1c50a3a510",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0288222c4de6492999b0a4b6bdb4b974",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8b2d774dce984fbea3a9a130755b9bd4",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ab2a697e074d4cb6be4bd589f4764ee2",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "a4cc8c96b9cd4a78b7888cf909aafb01",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "4d8b31b65c604cab8947735b71464163",
+          "Name": "point",
+          "Description": "Autodesk.DesignScript.Geometry.Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a40c475e3b8a4add8f2eee72e36e8e63",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.X",
+      "Replication": "Auto",
+      "Description": "Get the X component of a Point\n\nPoint.X: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "2d4d33817042493f91f90d91918ec801",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "46c1dd6bd3c44740a96c64231c1f6a8a",
+          "Name": "point",
+          "Description": "Autodesk.DesignScript.Geometry.Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "667be73a172945cdae7460bd0c4199f1",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.Y",
+      "Replication": "Auto",
+      "Description": "Get the Y component of a Point\n\nPoint.Y: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "ce825a33346a470da51e74341c8ef9e6",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "67709ce51d2a498dbca5fe47325c80e8",
+          "Name": "point",
+          "Description": "Autodesk.DesignScript.Geometry.Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a66b8cebfd5d42938a62e9fa8583a20e",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.Z",
+      "Replication": "Auto",
+      "Description": "Get the Z component of a Point\n\nPoint.Z: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "819d3b85aae74cd7a21fbb69dee57dde",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "4e327520672341c69ebcd4a7530870ac",
+          "Name": "familyType",
+          "Description": "Family Type. Also called Family Symbol.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3617ab9a27504baeb7961aee95fb4b8c",
+          "Name": "point",
+          "Description": "Point in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e541b126c9a843d1b0445b282cc9be80",
+          "Name": "FamilyInstance",
+          "Description": "FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Revit.Elements.FamilyInstance.ByPoint@Revit.Elements.FamilyType,Autodesk.DesignScript.Geometry.Point",
+      "Replication": "Auto",
+      "Description": "Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space\n\nFamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "7f101fd960a4460bace2b34226d10e78",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b875ab2e5d3845919539923fb6fe0d08",
+          "Name": "name",
+          "Description": "The name of the FamilyType\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "65617473002a42938715b56d7f0b1ca7",
+          "Name": "FamilyType",
+          "Description": "FamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Revit.Elements.FamilyType.ByName@string",
+      "Replication": "Auto",
+      "Description": "Select a FamilyType given it's name. This method will return the first FamilyType it finds if there are two or more FamilyTypes with the same name.\n\nFamilyType.ByName (name: string): FamilyType"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "Id": "c74d23c705bf41e3a4847f23c99387ad",
+      "NodeType": "StringInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e4d4e488bb884366acf1a7fc0af8e377",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string",
+      "InputValue": "Pendent_Sprinkler"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "3dfa02125e4a4030bbd79439a87989e5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3903ca3058cc471b9b7185e98ebb881b",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a model element from the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "3a5e2f99-da0a-4d0b-a193-42619cb76458",
+      "FunctionType": "Graph",
+      "Id": "3d86d8412713450c9ad482fafb2fc1cb",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "beb5b384a3d046c3be5e437359a4adc8",
+          "Name": "importInstance",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "44221343627b4379a1fb763487c6644c",
+          "Name": "BlockName",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c74710d5b5664c0992e81f4fdd80c59c",
+          "Name": "OriginPoint",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5271bcb93cc544b9b6509f8e85e6d3f6",
+          "Name": "Rotation",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "37cfd1a8d5224c7ebd988d8b0fbb3836",
+          "Name": "LayerName",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the location point, name and layer of the CAD blocks / XRefs from a CAD link or import.\r\nPlease note : The non-uniform scaling of blocks is not supported (The X, Y and Z values ​​of the Block Scale must be the same)."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ab2a697e074d4cb6be4bd589f4764ee2",
+      "End": "3617ab9a27504baeb7961aee95fb4b8c",
+      "Id": "5c12b6f478b24053b67e5e8c1f7daf24",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a40c475e3b8a4add8f2eee72e36e8e63",
+      "End": "a8047059909348beaf1baf1c50a3a510",
+      "Id": "e4f2038fee384a868230065264378f3b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "667be73a172945cdae7460bd0c4199f1",
+      "End": "0288222c4de6492999b0a4b6bdb4b974",
+      "Id": "cfcd64c77491434a94e3d41a15b6593b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a66b8cebfd5d42938a62e9fa8583a20e",
+      "End": "8b2d774dce984fbea3a9a130755b9bd4",
+      "Id": "7da346b1aec34931adbce45191db191b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "65617473002a42938715b56d7f0b1ca7",
+      "End": "4e327520672341c69ebcd4a7530870ac",
+      "Id": "591e75c76d414504aad97f046c73ca09",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e4d4e488bb884366acf1a7fc0af8e377",
+      "End": "b875ab2e5d3845919539923fb6fe0d08",
+      "Id": "d17dda732ccd4167ad6789a39a5031e3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3903ca3058cc471b9b7185e98ebb881b",
+      "End": "beb5b384a3d046c3be5e437359a4adc8",
+      "Id": "907ba2e642df455197fe5ee51557e999",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c74710d5b5664c0992e81f4fdd80c59c",
+      "End": "4d8b31b65c604cab8947735b71464163",
+      "Id": "e94d46e4224f4792a0fd01af833486ca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c74710d5b5664c0992e81f4fdd80c59c",
+      "End": "46c1dd6bd3c44740a96c64231c1f6a8a",
+      "Id": "1412c104b4b94ae98b353fd0869fcbdf",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c74710d5b5664c0992e81f4fdd80c59c",
+      "End": "67709ce51d2a498dbca5fe47325c80e8",
+      "Id": "5550d6d875a94e86a0a28f227baa2bd4",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "3a5e2f99-da0a-4d0b-a193-42619cb76458"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Genius Loci",
+      "Version": "2023.7.13",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "3d86d8412713450c9ad482fafb2fc1cb"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.19",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "6.1",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 100.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.19.3.6394",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -15.677026748657227,
+      "EyeY": 24.276832580566406,
+      "EyeZ": 96.133720397949219,
+      "LookX": 19.840560913085938,
+      "LookY": -21.493942260742188,
+      "LookZ": -95.896049499511719,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "6c644b81109644bf86c43cc0974f6250",
+        "Name": "Point.ByCoordinates",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2307.6442214749009,
+        "Y": 718.97875957828069
+      },
+      {
+        "Id": "a4cc8c96b9cd4a78b7888cf909aafb01",
+        "Name": "Point.X",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1428.1120459603317,
+        "Y": 438.03395431924082
+      },
+      {
+        "Id": "2d4d33817042493f91f90d91918ec801",
+        "Name": "Point.Y",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1425.3317823128898,
+        "Y": 606.58628563829836
+      },
+      {
+        "Id": "ce825a33346a470da51e74341c8ef9e6",
+        "Name": "Point.Z",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1423.4678241683985,
+        "Y": 781.04501853550119
+      },
+      {
+        "Id": "819d3b85aae74cd7a21fbb69dee57dde",
+        "Name": "FamilyInstance.ByPoint",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2798.131071369894,
+        "Y": 474.35300886574612
+      },
+      {
+        "Id": "7f101fd960a4460bace2b34226d10e78",
+        "Name": "FamilyType.ByName",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2475.6648201855269,
+        "Y": 404.273804335408
+      },
+      {
+        "Id": "c74d23c705bf41e3a4847f23c99387ad",
+        "Name": "Enyter your family type name",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1969.1709469465509,
+        "Y": 294.74170120052338
+      },
+      {
+        "Id": "3dfa02125e4a4030bbd79439a87989e5",
+        "Name": "Select your required CAD Block Layout",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 592.13229590284413,
+        "Y": 599.61408269394246
+      },
+      {
+        "Id": "3d86d8412713450c9ad482fafb2fc1cb",
+        "Name": "CAD Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1008.7041439877883,
+        "Y": 426.57654579711959
+      }
+    ],
+    "Annotations": [],
+    "X": -231.33298699961188,
+    "Y": -57.217009400125164,
+    "Zoom": 0.55207678190314857
+  }
+}
